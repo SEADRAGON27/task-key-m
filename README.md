@@ -118,5 +118,3 @@ This project provides an API for managing bookings and user authentication/regis
 ## Swagger Documentation
    
 1. Route:http://localhost:<port>/api/docs
-
-The API will be available at http://localhost:<port>.
