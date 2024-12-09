@@ -75,6 +75,9 @@ export class UserRepository {
           updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
           );
           
+          CREATE INDEX IF NOT EXISTS idx_users_username_hash ON users USING HASH (username);
+          CREATE INDEX IF NOT EXISTS idx_users_email_hash ON users USING HASH (email);
+          
           CREATE OR REPLACE FUNCTION update_updated_at_column()
           RETURNS TRIGGER AS $$
           BEGIN

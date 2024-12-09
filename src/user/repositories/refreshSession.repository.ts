@@ -79,7 +79,9 @@ export class RefreshSessionRepository {
             REFERENCES users(id)
             ON DELETE CASCADE
           );
-        `;
+        
+          CREATE INDEX IF NOT EXISTS idx_refresh_sessions_refresh_token_hash ON refresh_sessions USING HASH (refresh_token);
+          `;
 
     return this.pool.query(query);
   }

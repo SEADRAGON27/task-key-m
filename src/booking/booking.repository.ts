@@ -187,7 +187,9 @@ export class BookingRepository {
         REFERENCES users(id)
         ON DELETE CASCADE
       );
-
+      
+      CREATE INDEX IF NOT EXISTS idx_bookings_date_hash ON bookings USING HASH (date);
+      
       DO $$
       BEGIN
       IF NOT EXISTS (
